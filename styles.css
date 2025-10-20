@@ -5,212 +5,62 @@
   --muted: #6b6b6b;
   --line: #ece7df;
   --gold: #bfa26a;
-  --bg1: #fffaf3;
-  --bg2: #f6efe5;
-  --bg3: #f9f3e9;
+
+  /* motion background tints */
+  --bg1: #fffaf3; --bg2: #f6efe5; --bg3: #f9f3e9;
+  --bgA: #f8efe2; --bgB: #f4e7d7; --bgC: #fff6e9;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  overflow-x: hidden;
-}
+html, body { background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
 
 /* ====== HEADER ====== */
 .site-header {
-  position: sticky;
-  top: 0;
+  position: sticky; top: 0; z-index: 10;
   backdrop-filter: blur(8px);
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.82);
   border-bottom: 1px solid var(--line);
-  z-index: 10;
 }
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; max-width: 1100px; margin: 0 auto; padding: 0 20px;
 }
-.logo {
-  font-weight: 800;
-  font-size: 22px;
-}
-.logo span {
-  color: var(--gold);
-}
-.nav {
-  display: flex;
-  gap: 18px;
-}
-.nav a {
-  text-decoration: none;
-  color: var(--ink);
-  font-weight: 500;
-}
+.logo { font-weight: 800; font-size: 22px; letter-spacing: .2px; }
+.logo span { color: var(--gold); }
+.nav { display: flex; gap: 18px; }
 
 /* ====== LAYOUT ====== */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.section {
-  padding: 56px 0;
-}
-.section-head {
-  margin-bottom: 28px;
-}
-.muted {
-  color: var(--muted);
-}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 56px 0; }
+.section-head { margin-bottom: 28px; }
+.muted { color: var(--muted); }
 
 /* ====== GRID & CARDS ====== */
-.grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(4, 1fr);
-}
-@media (max-width: 950px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr; }
-}
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 950px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
 .card {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px;
-  background: #fff;
-  position: relative;
-  overflow: hidden;
+  border: 1px solid var(--line); border-radius: 16px; padding: 14px; background: #fff;
+  position: relative; overflow: hidden;
 }
-.card h3 {
-  margin: 10px 0 6px;
-  font-size: 18px;
-  line-height: 1.25;
-}
+.card h3 { margin: 10px 0 6px; font-size: 18px; line-height: 1.25; }
 .card-media {
-  height: 220px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  overflow: hidden;
-  position: relative;
-  isolation: isolate;
+  height: 220px; border-radius: 12px; border: 1px solid var(--line);
+  overflow: hidden; position: relative; isolation: isolate;
 }
-.card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-.card:hover .card-media img {
-  transform: scale(1.02);
-}
-.btn {
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--ink);
-  background: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-}
+.card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+.card:hover .card-media img { transform: scale(1.02); }
+.btn { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--ink); background: #fff; cursor: pointer; font-size: 14px; font-weight: 500; }
 
-/* ====== MOTION BACKGROUND ====== */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -10%;
-  z-index: -2;
-  background:
-    radial-gradient(1200px 800px at 15% 10%, var(--bg2), transparent 60%),
-    radial-gradient(900px 700px at 80% 20%, var(--bg3), transparent 65%),
-    radial-gradient(1000px 900px at 40% 90%, var(--bg2), transparent 60%),
-    linear-gradient(180deg, var(--bg1), #fffefb 50%, var(--bg1));
-  animation: velouraGradient 48s ease-in-out infinite alternate;
-  filter: blur(0.3px);
-}
-
-@keyframes velouraGradient {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(0, -1.2%, 0) scale(1.02); }
-}
-
-/* ====== SPARKLE EFFECT ====== */
-.card-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  background:
-    radial-gradient(10px 10px at var(--sx, -20px) var(--sy, -20px), rgba(255,255,255,.85), rgba(255,255,255,0) 55%),
-    radial-gradient(6px 6px at calc(var(--sx, -20px) + 30px) calc(var(--sy, -20px) + 10px), rgba(191,162,106,.75), rgba(191,162,106,0) 60%),
-    radial-gradient(4px 4px at calc(var(--sx, -20px) - 18px) calc(var(--sy, -20px) + 6px), rgba(255,255,255,.9), rgba(255,255,255,0) 60%);
-}
-.card:hover .card-media::after {
-  opacity: 1;
-}
-
-/* ====== FOOTER ====== */
-.site-footer {
-  margin-top: 60px;
-  border-top: 1px solid var(--line);
-  background: rgba(255,255,255,0.9);
-}
-.site-footer .container {
-  padding: 22px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-.motion-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fff;
-  cursor: pointer;
-  font-size: 14px;
-}
-.motion-toggle input {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--gold);
-}
-
-/* ====== REDUCE MOTION SUPPORT ====== */
-.motion-muted .card-media::after { display: none !important; }
-@media (prefers-reduced-motion: reduce) {
-  body::before { animation: none !important; }
-  .card-media::after { display: none !important; }
-}
-/* ===== Visible motion background (drifting glows) ===== */
-:root { --bgA:#f8efe2; --bgB:#f4e7d7; --bgC:#fff6e9; }
-
+/* ====== VISIBLE MOTION BACKGROUND (drifting gold glows) ====== */
 body::before,
-body::after{
-  content:"";
-  position:fixed;
-  inset:-12%;
-  z-index:-2;
-  pointer-events:none;
+body::after {
+  content: ""; position: fixed; inset: -12%; z-index: -2; pointer-events: none;
   will-change: transform, opacity, background-position;
 }
-
-/* base soft wash */
-body::before{
+body::before {
   background:
     radial-gradient(55% 45% at 12% 18%, var(--bgA), transparent 60%),
     radial-gradient(50% 40% at 85% 20%, var(--bgB), transparent 62%),
@@ -218,32 +68,43 @@ body::before{
     linear-gradient(180deg, #fffdf8, #fffaf1 60%, #fffdf8);
   animation: velouraPan 36s ease-in-out infinite alternate;
   filter: blur(.4px);
-  opacity:.95;
+  opacity: .95;
 }
-
-/* brighter blobs that drift a little more so you notice it */
-body::after{
+body::after {
   background:
     radial-gradient(32% 28% at 20% 30%, rgba(191,162,106,.12), transparent 65%),
     radial-gradient(28% 24% at 78% 35%, rgba(191,162,106,.10), transparent 70%),
     radial-gradient(24% 22% at 55% 78%, rgba(191,162,106,.09), transparent 70%);
-  mix-blend-mode:multiply;
+  mix-blend-mode: multiply;
   animation: velouraPan2 28s ease-in-out infinite alternate;
-  opacity:.9;
+  opacity: .9;
 }
+@keyframes velouraPan { 0% { transform: translate3d(0,0,0) scale(1.01);} 100% { transform: translate3d(0,-3%,0) scale(1.04);} }
+@keyframes velouraPan2 { 0% { transform: translate3d(-2%,1%,0) scale(1.02);} 100% { transform: translate3d(1%,-2%,0) scale(1.05);} }
 
-@keyframes velouraPan{
-  0%   { transform: translate3d(0,0,0) scale(1.01); }
-  100% { transform: translate3d(0,-3%,0) scale(1.04); }
+/* ====== HOVER SPARKLES (CSS-driven) ====== */
+.card-media::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0; transition:opacity .25s ease;
+  background:
+    radial-gradient(10px 10px at var(--sx,-20px) var(--sy,-20px), rgba(255,255,255,.85), rgba(255,255,255,0) 55%),
+    radial-gradient(6px 6px at calc(var(--sx,-20px) + 30px) calc(var(--sy,-20px) + 10px), rgba(191,162,106,.75), rgba(191,162,106,0) 60%),
+    radial-gradient(4px 4px at calc(var(--sx,-20px) - 18px) calc(var(--sy,-20px) + 6px), rgba(255,255,255,.9), rgba(255,255,255,0) 60%);
 }
-@keyframes velouraPan2{
-  0%   { transform: translate3d(-2%,1%,0) scale(1.02); }
-  100% { transform: translate3d(1%,-2%,0) scale(1.05); }
-}
+.card:hover .card-media::after{ opacity:1; }
 
-/* Respect reduced motion / toggle */
-.motion-muted::before,
-.motion-muted::after { animation: none !important; opacity: 0 !important; }
+/* ====== FOOTER ====== */
+.site-footer { margin-top: 60px; border-top: 1px solid var(--line); background: rgba(255,255,255,0.92); }
+.site-footer .container { padding: 22px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.motion-toggle { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; cursor:pointer; font-size:14px; }
+.motion-toggle input{ width:18px; height:18px; accent-color: var(--gold); }
+
+/* ====== 3D CANVAS (Three.js gem) ====== */
+#bg3d { position: fixed; inset: 0; z-index: -3; pointer-events: none; }
+
+/* ====== REDUCE MOTION ====== */
+.motion-muted::before, .motion-muted::after { animation: none !important; opacity: 0 !important; }
+.motion-muted #bg3d { display: none !important; }
 @media (prefers-reduced-motion: reduce){
-  body::before, body::after { animation:none !important; opacity:0 !important; }
+  body::before, body::after { animation: none !important; opacity: 0 !important; }
+  #bg3d { display: none !important; }
 }

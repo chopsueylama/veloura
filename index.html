@@ -5,57 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Veloura$ — Gem Collection</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* ===== Visible motion background (drifting gold glows) ===== */
-    :root { --bgA:#f8efe2; --bgB:#f4e7d7; --bgC:#fff6e9; }
-
-    body::before,
-    body::after{
-      content:"";
-      position:fixed;
-      inset:-12%;
-      z-index:-2;
-      pointer-events:none;
-      will-change: transform, opacity, background-position;
-    }
-
-    body::before{
-      background:
-        radial-gradient(55% 45% at 12% 18%, var(--bgA), transparent 60%),
-        radial-gradient(50% 40% at 85% 20%, var(--bgB), transparent 62%),
-        radial-gradient(60% 50% at 40% 92%, var(--bgC), transparent 60%),
-        linear-gradient(180deg, #fffdf8, #fffaf1 60%, #fffdf8);
-      animation: velouraPan 36s ease-in-out infinite alternate;
-      filter: blur(.4px);
-      opacity:.95;
-    }
-
-    body::after{
-      background:
-        radial-gradient(32% 28% at 20% 30%, rgba(191,162,106,.12), transparent 65%),
-        radial-gradient(28% 24% at 78% 35%, rgba(191,162,106,.10), transparent 70%),
-        radial-gradient(24% 22% at 55% 78%, rgba(191,162,106,.09), transparent 70%);
-      mix-blend-mode:multiply;
-      animation: velouraPan2 28s ease-in-out infinite alternate;
-      opacity:.9;
-    }
-
-    @keyframes velouraPan{
-      0%   { transform: translate3d(0,0,0) scale(1.01); }
-      100% { transform: translate3d(0,-3%,0) scale(1.04); }
-    }
-    @keyframes velouraPan2{
-      0%   { transform: translate3d(-2%,1%,0) scale(1.02); }
-      100% { transform: translate3d(1%,-2%,0) scale(1.05); }
-    }
-
-    /* Reduce Motion support */
-    .motion-muted::before,
-    .motion-muted::after { animation: none !important; opacity: 0 !important; }
-    @media (prefers-reduced-motion: reduce){
-      body::before, body::after { animation:none !important; opacity:0 !important; }
-    }
-  </style>
 </head>
 <body>
 
@@ -80,7 +29,7 @@
     </div>
 
     <div id="collection" class="grid">
-      <!-- Product cards -->
+      <!-- 12 product cards (keep/add your others as needed) -->
       <article class="card">
         <a href="ceylon-blue-sapphire.html">
           <div class="card-media"><img src="/veloura/assets/ceylon-blue-sapphire/set1.png" alt="Ceylon Blue Sapphire — Cushion Cut"></div>
@@ -140,6 +89,8 @@
           <button class="btn" onclick='addItem({"slug":"spinel","name":"Spinel — Neon Pink","price":2150})'>Add</button>
         </div>
       </article>
+
+      <!-- Add remaining stones here exactly like above -->
     </div>
   </main>
 
@@ -159,35 +110,30 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Sparkles + cart + toggle logic -->
   <script>
-    // Cart badge + add-to-cart
+    /* Cart */
     const CART_KEY='veloura_cart_v1';
     function getCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY))||[] }catch{ return [] } }
     function setCart(c){ localStorage.setItem(CART_KEY, JSON.stringify(c)); refreshBadges(); }
-    function addItem(item){
-      const c=getCart(); const i=c.findIndex(x=>x.slug===item.slug);
-      if(i>=0) c[i].qty+=1; else c.push({...item, qty:1});
-      setCart(c); alert(item.name+' added to cart.');
-    }
+    function addItem(item){ const c=getCart(); const i=c.findIndex(x=>x.slug===item.slug); if(i>=0)c[i].qty+=1; else c.push({...item,qty:1}); setCart(c); alert(item.name+' added to cart.'); }
     function refreshBadges(){ const n=getCart().reduce((a,b)=>a+b.qty,0); const el=document.getElementById('cartBadge'); if(el) el.textContent=n; }
     refreshBadges();
 
-    // Footer year
+    /* Footer year */
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Hover sparkle cursor tracking
-    (function(){
-      const root=document.documentElement; let rafId=null;
+    /* Hover sparkle cursor tracking */
+    (function(){ const root=document.documentElement; let rafId=null;
       function onMove(e){ const t=e.touches?e.touches[0]:e;
         if(rafId) cancelAnimationFrame(rafId);
         rafId=requestAnimationFrame(()=>{ root.style.setProperty('--sx', t.clientX+'px'); root.style.setProperty('--sy', t.clientY+'px'); });
       }
-      document.addEventListener('mousemove', onMove, {passive:true});
-      document.addEventListener('touchmove', onMove, {passive:true});
+      addEventListener('mousemove', onMove, {passive:true});
+      addEventListener('touchmove', onMove, {passive:true});
     })();
 
-    // Reduce Motion toggle
+    /* Reduce Motion toggle (persist) */
     (function(){
       const KEY='veloura_reduce_motion';
       const setMuted=(m)=>{ document.body.classList.toggle('motion-muted', !!m); try{ localStorage.setItem(KEY, m?'1':'0'); }catch{} };
@@ -195,6 +141,82 @@
       const el=document.getElementById('motionToggle');
       if(el){ el.checked=document.body.classList.contains('motion-muted'); el.addEventListener('change',()=>setMuted(el.checked)); }
     })();
+  </script>
+
+  <!-- 3D faceted gem background (Three.js) -->
+  <canvas id="bg3d" aria-hidden="true"></canvas>
+  <script type="module">
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.body.classList.contains('motion-muted') && !prefersReduced) {
+      import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+      import { RGBELoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/RGBELoader.js';
+
+      const canvas = document.getElementById('bg3d');
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+      renderer.setSize(innerWidth, innerHeight);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.1, 100);
+      camera.position.set(0,0,8);
+
+      const rim = new THREE.DirectionalLight(0xffffff, 0.6);
+      rim.position.set(-2,3,5); scene.add(rim);
+
+      // HDRI env (you can host locally later under /veloura/assets/hdri/*.hdr)
+      const hdrUrl = 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_03_1k.hdr';
+      const pmrem = new THREE.PMREMGenerator(renderer); pmrem.compileEquirectangularShader();
+      new RGBELoader().load(hdrUrl, (hdr) => {
+        const env = pmrem.fromEquirectangular(hdr).texture;
+        scene.environment = env; hdr.dispose(); pmrem.dispose();
+      });
+
+      // Faceted gem
+      const geo = new THREE.IcosahedronGeometry(3.2, 2);
+      const mat = new THREE.MeshPhysicalMaterial({
+        color: 0x1e3a8a,              // deep sapphire tint
+        transmission: 1.0, thickness: 0.5, ior: 1.76,
+        roughness: 0.04, metalness: 0.0, envMapIntensity: 1.0,
+        specularIntensity: 1.0, specularColor: new THREE.Color(0xffffff),
+        attenuationColor: new THREE.Color(0xbfa26a), attenuationDistance: 2.5,
+        clearcoat: 0.5, clearcoatRoughness: 0.04
+      });
+      const gem = new THREE.Mesh(geo, mat);
+      gem.position.set(0,0,-2); scene.add(gem);
+
+      // Parallax
+      let targetRX=0, targetRY=0;
+      function onPointer(e){ const t=e.touches?e.touches[0]:e;
+        const nx=(t.clientX/innerWidth)*2-1, ny=(t.clientY/innerHeight)*2-1;
+        targetRY = nx * 0.25; targetRX = -ny * 0.25;
+      }
+      addEventListener('mousemove', onPointer, {passive:true});
+      addEventListener('touchmove', onPointer, {passive:true});
+
+      let stopped=false;
+      function tick(){
+        if(stopped || document.body.classList.contains('motion-muted')) return;
+        gem.rotation.y += 0.002; gem.rotation.x += 0.001;
+        gem.rotation.y += (targetRY - gem.rotation.y) * 0.04;
+        gem.rotation.x += (targetRX - gem.rotation.x) * 0.04;
+        renderer.render(scene, camera); requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      addEventListener('resize', () => {
+        renderer.setSize(innerWidth, innerHeight);
+        camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+      });
+
+      // Live toggle handling
+      const obs = new MutationObserver(() => {
+        const muted = document.body.classList.contains('motion-muted');
+        if (muted){ stopped=true; renderer.clear(); canvas.style.display='none'; }
+        else { stopped=false; canvas.style.display='block'; requestAnimationFrame(tick); }
+      });
+      obs.observe(document.body, { attributes:true, attributeFilter:['class'] });
+    }
   </script>
 </body>
 </html>
