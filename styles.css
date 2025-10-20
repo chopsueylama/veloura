@@ -1,16 +1,16 @@
 /* ===== Theme ===== */
-:root {
-  --bg: #fffefb;
-  --ink: #1a1a1a;
-  --muted: #6b6b6b;
-  --line: #ece7df;
-  --gold: #bfa26a;
+:root{
+  --bg:#fffefb;
+  --ink:#1a1a1a;
+  --muted:#6b6b6b;
+  --line:#ece7df;
+  --gold:#bfa26a;
 
-  /* motion background tints */
+  /* background tints */
   --bgA:#f8efe2; --bgB:#f4e7d7; --bgC:#fff6e9;
 }
 
-/* Reset / base */
+/* Base */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
 a{text-decoration:none;color:inherit}
@@ -39,7 +39,7 @@ a{text-decoration:none;color:inherit}
 .card:hover .card-media img{transform:scale(1.02)}
 .btn{padding:8px 14px;border-radius:999px;border:1px solid var(--ink);background:#fff;cursor:pointer;font-size:14px;font-weight:500}
 
-/* Visible drifting gold background (CSS only) */
+/* Visible drifting background (very light) */
 body::before,body::after{
   content:"";position:fixed;inset:-12%;z-index:-2;pointer-events:none;will-change:transform,opacity,background-position
 }
@@ -77,8 +77,8 @@ body::after{
 .motion-toggle{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-size:14px}
 .motion-toggle input{width:18px;height:18px;accent-color:var(--gold)}
 
-/* 3D Canvas stacking (ABOVE gradient) */
-#bg3d{position:fixed;inset:0;z-index:-1;pointer-events:none}
+/* WebGL canvas (above gradient, behind content) */
+#bg3d{position:fixed;inset:0;z-index:0;pointer-events:none}
 
 /* Reduce motion */
 .motion-muted::before,.motion-muted::after{animation:none!important;opacity:0!important}
