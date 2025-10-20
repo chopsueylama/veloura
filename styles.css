@@ -39,7 +39,7 @@ a{text-decoration:none;color:inherit}
 .card:hover .card-media img{transform:scale(1.02)}
 .btn{padding:8px 14px;border-radius:999px;border:1px solid var(--ink);background:#fff;cursor:pointer;font-size:14px;font-weight:500}
 
-/* Subtle drifting gradient background */
+/* Subtle drifting gradient background (above canvas, below content) */
 body::before,body::after{
   content:"";position:fixed;inset:-12%;z-index:-1;pointer-events:none;will-change:transform,opacity,background-position
 }
@@ -61,7 +61,7 @@ body::after{
 @keyframes velouraPan{0%{transform:translate3d(0,0,0) scale(1.01)}100%{transform:translate3d(0,-3%,0) scale(1.04)}}
 @keyframes velouraPan2{0%{transform:translate3d(-2%,1%,0) scale(1.02)}100%{transform:translate3d(1%,-2%,0) scale(1.05)}}
 
-/* Hover sparkles */
+/* Hover sparkles over product images */
 .card-media::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .25s ease;
   background:
@@ -78,12 +78,12 @@ body::after{
 .motion-toggle input{width:18px;height:18px;accent-color:var(--gold)}
 
 /* WebGL canvas — beneath gradient and content */
-#bg3d{position:fixed;inset:0;z-index:-2;pointer-events:none}
+#diamondScene{position:fixed;inset:0;z-index:-2;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen;opacity:.9;filter:brightness(1.05)}
 
 /* Reduce motion */
 .motion-muted::before,.motion-muted::after{animation:none!important;opacity:0!important}
-.motion-muted #bg3d{display:none!important}
+.motion-muted #diamondScene{display:none!important}
 @media (prefers-reduced-motion:reduce){
   body::before,body::after{animation:none!important;opacity:0!important}
-  #bg3d{display:none!important}
+  #diamondScene{display:none!important}
 }
