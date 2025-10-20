@@ -196,3 +196,54 @@ body::before {
   body::before { animation: none !important; }
   .card-media::after { display: none !important; }
 }
+/* ===== Visible motion background (drifting glows) ===== */
+:root { --bgA:#f8efe2; --bgB:#f4e7d7; --bgC:#fff6e9; }
+
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-12%;
+  z-index:-2;
+  pointer-events:none;
+  will-change: transform, opacity, background-position;
+}
+
+/* base soft wash */
+body::before{
+  background:
+    radial-gradient(55% 45% at 12% 18%, var(--bgA), transparent 60%),
+    radial-gradient(50% 40% at 85% 20%, var(--bgB), transparent 62%),
+    radial-gradient(60% 50% at 40% 92%, var(--bgC), transparent 60%),
+    linear-gradient(180deg, #fffdf8, #fffaf1 60%, #fffdf8);
+  animation: velouraPan 36s ease-in-out infinite alternate;
+  filter: blur(.4px);
+  opacity:.95;
+}
+
+/* brighter blobs that drift a little more so you notice it */
+body::after{
+  background:
+    radial-gradient(32% 28% at 20% 30%, rgba(191,162,106,.12), transparent 65%),
+    radial-gradient(28% 24% at 78% 35%, rgba(191,162,106,.10), transparent 70%),
+    radial-gradient(24% 22% at 55% 78%, rgba(191,162,106,.09), transparent 70%);
+  mix-blend-mode:multiply;
+  animation: velouraPan2 28s ease-in-out infinite alternate;
+  opacity:.9;
+}
+
+@keyframes velouraPan{
+  0%   { transform: translate3d(0,0,0) scale(1.01); }
+  100% { transform: translate3d(0,-3%,0) scale(1.04); }
+}
+@keyframes velouraPan2{
+  0%   { transform: translate3d(-2%,1%,0) scale(1.02); }
+  100% { transform: translate3d(1%,-2%,0) scale(1.05); }
+}
+
+/* Respect reduced motion / toggle */
+.motion-muted::before,
+.motion-muted::after { animation: none !important; opacity: 0 !important; }
+@media (prefers-reduced-motion: reduce){
+  body::before, body::after { animation:none !important; opacity:0 !important; }
+}
