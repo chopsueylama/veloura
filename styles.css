@@ -37,7 +37,7 @@ a{text-decoration:none;color:inherit}
 .card:hover .card-media img{transform:scale(1.02)}
 .btn{padding:8px 14px;border-radius:999px;border:1px solid var(--ink);background:#fff;cursor:pointer;font-size:14px;font-weight:500}
 
-/* Subtle drifting gradient (above canvas, below content) */
+/* Soft gradient background (sits above canvas, below content) */
 body::before,body::after{
   content:"";position:fixed;inset:-12%;z-index:-1;pointer-events:none;will-change:transform,opacity,background-position
 }
@@ -58,16 +58,6 @@ body::after{
 }
 @keyframes velouraPan{0%{transform:translate3d(0,0,0) scale(1.01)}100%{transform:translate3d(0,-3%,0) scale(1.04)}}
 @keyframes velouraPan2{0%{transform:translate3d(-2%,1%,0) scale(1.02)}100%{transform:translate3d(1%,-2%,0) scale(1.05)}}
-
-/* Optional sparkle hover on product images */
-.card-media::after{
-  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .25s ease;
-  background:
-    radial-gradient(10px 10px at var(--sx,-20px) var(--sy,-20px), rgba(255,255,255,.85), rgba(255,255,255,0) 55%),
-    radial-gradient(6px 6px at calc(var(--sx,-20px) + 30px) calc(var(--sy,-20px) + 10px), rgba(191,162,106,.75), rgba(191,162,106,0) 60%),
-    radial-gradient(4px 4px at calc(var(--sx,-20px) - 18px) calc(var(--sy,-20px) + 6px), rgba(255,255,255,.9), rgba(255,255,255,0) 60%)
-}
-.card:hover .card-media::after{opacity:1}
 
 /* Footer */
 .site-footer{margin-top:60px;border-top:1px solid var(--line);background:rgba(255,255,255,.92)}
