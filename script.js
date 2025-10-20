@@ -1,0 +1,4 @@
+const $=(q,el=document)=>el.querySelector(q), $$=(q,el=document)=>Array.from(el.querySelectorAll(q));
+const CART_KEY='veloura_cart_v1';function getCart(){try{return JSON.parse(localStorage.getItem(CART_KEY))||[]}catch{return[]}}function setCart(c){localStorage.setItem(CART_KEY,JSON.stringify(c));refreshBadges()}
+function addItem(item){const c=getCart();const i=c.findIndex(x=>x.slug===item.slug);if(i>=0)c[i].qty+=1;else c.push({...item,qty:1});setCart(c);alert(item.name+' added to cart.')}
+function refreshBadges(){const n=getCart().reduce((a,b)=>a+b.qty,0);const b1=$('#cartBadge');if(b1)b1.textContent=n}refreshBadges();

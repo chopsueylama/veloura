@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cat’s Eye Chrysoberyl — Chatoyancy Line — Veloura$</title>
+<link rel="stylesheet" href="styles.css"></head><body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Veloura<span>$</span></a>
+    <nav class="nav">
+      <a href="index.html#collection">Collection</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart <span id="cartBadge">0</span></a>
+    </nav>
+  </div>
+</header>
+<main class="container section">
+  <nav class="muted" style="margin-bottom:12px"><a href="index.html">Home</a> / Cat’s Eye Chrysoberyl — Chatoyancy Line</nav>
+  <div class="product">
+    <div>
+      <img id="mainImg" src="/veloura/assets/cats-eye-chrysoberyl/set1.png" alt="Cat’s Eye Chrysoberyl — Chatoyancy Line" style="width:100%;border:1px solid var(--line);border-radius:16px">
+      <div style="display:flex;gap:10px;margin-top:10px">
+        <img class="thumb" src="/veloura/assets/cats-eye-chrysoberyl/set1.png" style="width:100px;height:100px;object-fit:cover;border:1px solid var(--line);border-radius:10px;cursor:pointer">
+        <img class="thumb" src="/veloura/assets/cats-eye-chrysoberyl/set2.png" style="width:100px;height:100px;object-fit:cover;border:1px solid var(--line);border-radius:10px;cursor:pointer">
+        <img class="thumb" src="/veloura/assets/cats-eye-chrysoberyl/set3.png" style="width:100px;height:100px;object-fit:cover;border:1px solid var(--line);border-radius:10px;cursor:pointer">
+      </div>
+      <script>document.addEventListener('click',e=>{if(e.target.classList.contains('thumb'))document.getElementById('mainImg').src=e.target.src;});</script>
+    </div>
+    <div>
+      <h1 style="margin:0 0 6px">Cat’s Eye Chrysoberyl — Chatoyancy Line</h1>
+      <div class="price" style="font-size:22px;margin-bottom:10px">$3990</div>
+      <p class="muted" style="max-width:52ch">Well-centered, continuous eye with crisp separation; silky body tone shows a strong milk-and-honey effect.</p>
+      <ul>
+        <li>Chrysoberyl (Cat’s Eye) · Cabochon oval · 3.12 ct</li>
+        <li>Origin: Sri Lanka</li>
+        <li>Treatment: None</li>
+        <li>SKU: VLU-CCE-HON-312CB</li>
+      </ul>
+      <div style="display:flex;gap:10px;margin:16px 0">
+        <button class="btn primary" onclick='addItem({"slug":"cats-eye-chrysoberyl","name":"Cat’s Eye Chrysoberyl — Chatoyancy Line","price":3990})'>Add to cart</button>
+        <a class="btn" href="cart.html">View cart</a>
+      </div>
+    </div>
+  </div>
+</main><footer class="site-footer"><div class="container" style="padding:22px 0;border-top:1px solid var(--line)">
+  <strong>Veloura<span>$</span></strong> <span class="muted">© <span id="year"></span></span>
+</div><script>document.getElementById('year').textContent=new Date().getFullYear()</script><script src="script.js"></script></footer></body></html>
