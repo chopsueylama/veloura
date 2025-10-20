@@ -1,121 +1,198 @@
-/* minimal styles (same as earlier build) */ 
-*{box-sizing:border-box} :root{--bg:#fffefb;--ink:#1a1a1a;--muted:#6b6b6b;--line:#ece7df;--gold:#bfa26a}
-body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
-a{color:inherit;text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
-.muted{color:var(--muted)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav{display:flex;gap:22px}
-.logo{font-weight:800}.logo span{color:var(--gold)}
-.section{padding:56px 0}
-.grid{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
-.card{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff}
-.card-media{height:220px;border-radius:12px;border:1px solid var(--line);overflow:hidden}
-.card-media img{width:100%;height:100%;object-fit:cover;display:block}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;border:1px solid var(--ink);cursor:pointer;background:#fff}
-.btn.primary{background:var(--ink);color:#fff}
-.product{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
-@media (max-width:950px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product{grid-template-columns:1fr}}
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
-/* === Motion background (soft gradient layer) === */
+/* ====== GLOBAL THEME ====== */
 :root {
+  --bg: #fffefb;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --line: #ece7df;
+  --gold: #bfa26a;
   --bg1: #fffaf3;
   --bg2: #f6efe5;
   --bg3: #f9f3e9;
 }
 
-/* Fixed gradient layer behind content */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ====== HEADER ====== */
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.8);
+  border-bottom: 1px solid var(--line);
+  z-index: 10;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+}
+.logo span {
+  color: var(--gold);
+}
+.nav {
+  display: flex;
+  gap: 18px;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ====== LAYOUT ====== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section {
+  padding: 56px 0;
+}
+.section-head {
+  margin-bottom: 28px;
+}
+.muted {
+  color: var(--muted);
+}
+
+/* ====== GRID & CARDS ====== */
+.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 950px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.card h3 {
+  margin: 10px 0 6px;
+  font-size: 18px;
+  line-height: 1.25;
+}
+.card-media {
+  height: 220px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.card:hover .card-media img {
+  transform: scale(1.02);
+}
+.btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ====== MOTION BACKGROUND ====== */
 body::before {
   content: "";
   position: fixed;
   inset: -10%;
   z-index: -2;
-  background: radial-gradient(1200px 800px at 15% 10%, var(--bg2), transparent 60%),
-              radial-gradient(900px 700px at 80% 20%, var(--bg3), transparent 65%),
-              radial-gradient(1000px 900px at 40% 90%, var(--bg2), transparent 60%),
-              linear-gradient(180deg, var(--bg1), #fffefb 50%, var(--bg1));
+  background:
+    radial-gradient(1200px 800px at 15% 10%, var(--bg2), transparent 60%),
+    radial-gradient(900px 700px at 80% 20%, var(--bg3), transparent 65%),
+    radial-gradient(1000px 900px at 40% 90%, var(--bg2), transparent 60%),
+    linear-gradient(180deg, var(--bg1), #fffefb 50%, var(--bg1));
+  animation: velouraGradient 48s ease-in-out infinite alternate;
   filter: blur(0.3px);
-  animation: velouraGradient 18s ease-in-out infinite alternate;
 }
 
-/* Subtle motion */
 @keyframes velouraGradient {
-  0%   { transform: translate3d(0,0,0) scale(1); }
-  100% { transform: translate3d(0,-1.2%,0) scale(1.02); }
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(0, -1.2%, 0) scale(1.02); }
 }
 
-/* Canvas for bokeh particles */
-#bgCanvas {
-  position: fixed;
+/* ====== SPARKLE EFFECT ====== */
+.card-media::after {
+  content: "";
+  position: absolute;
   inset: 0;
-  z-index: -1;           /* behind everything */
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.55;         /* subtle */
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  background:
+    radial-gradient(10px 10px at var(--sx, -20px) var(--sy, -20px), rgba(255,255,255,.85), rgba(255,255,255,0) 55%),
+    radial-gradient(6px 6px at calc(var(--sx, -20px) + 30px) calc(var(--sy, -20px) + 10px), rgba(191,162,106,.75), rgba(191,162,106,0) 60%),
+    radial-gradient(4px 4px at calc(var(--sx, -20px) - 18px) calc(var(--sy, -20px) + 6px), rgba(255,255,255,.9), rgba(255,255,255,0) 60%);
+}
+.card:hover .card-media::after {
+  opacity: 1;
 }
 
-/* Respect reduced motion */
+/* ====== FOOTER ====== */
+.site-footer {
+  margin-top: 60px;
+  border-top: 1px solid var(--line);
+  background: rgba(255,255,255,0.9);
+}
+.site-footer .container {
+  padding: 22px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.motion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+.motion-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold);
+}
+
+/* ====== REDUCE MOTION SUPPORT ====== */
+.motion-muted .card-media::after { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
-  body::before { animation: none; }
-  #bgCanvas { display: none; }
+  body::before { animation: none !important; }
+  .card-media::after { display: none !important; }
 }
-// === Veloura motion background ===
-(function () {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
-
-  const canvas = document.createElement('canvas');
-  canvas.id = 'bgCanvas';
-  document.body.appendChild(canvas);
-  const ctx = canvas.getContext('2d');
-
-  let W, H, particles;
-  const MAX = 60;                 // tweak count
-  const BASE_SIZE = 18;           // bokeh size
-  const COLOR = 'rgba(191,162,106,'; // gold-ish (Veloura$), alpha appended
-
-  function resize() {
-    W = canvas.width = Math.floor(window.innerWidth * dpr);
-    H = canvas.height = Math.floor(window.innerHeight * dpr);
-    canvas.style.width = `${window.innerWidth}px`;
-    canvas.style.height = `${window.innerHeight}px`;
-    // (Re)seed particles
-    particles = Array.from({ length: Math.floor(MAX * (window.innerWidth / 1280 + 0.3)) }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: (BASE_SIZE + Math.random() * BASE_SIZE) * dpr,
-      a: 0.12 + Math.random() * 0.12,
-      vx: (Math.random() - 0.5) * 0.06 * dpr,
-      vy: (Math.random() - 0.5) * 0.06 * dpr,
-      blur: 2 + Math.random() * 3
-    }));
-  }
-
-  function tick() {
-    ctx.clearRect(0, 0, W, H);
-    for (const p of particles) {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < -p.r) p.x = W + p.r;
-      if (p.x > W + p.r) p.x = -p.r;
-      if (p.y < -p.r) p.y = H + p.r;
-      if (p.y > H + p.r) p.y = -p.r;
-
-      // radial bokeh
-      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
-      g.addColorStop(0, `${COLOR}${(p.a * 1.0).toFixed(3)})`);
-      g.addColorStop(0.6, `${COLOR}${(p.a * 0.35).toFixed(3)})`);
-      g.addColorStop(1, 'rgba(191,162,106,0)');
-      ctx.filter = `blur(${p.blur}px)`;
-      ctx.fillStyle = g;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    ctx.filter = 'none';
-    requestAnimationFrame(tick);
-  }
-
-  window.addEventListener('resize', resize, { passive: true });
-  resize();
-  requestAnimationFrame(tick);
-})();
