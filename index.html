@@ -1,141 +1,337 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Veloura$ — Gem Collection</title>
-<link rel="stylesheet" href="styles.css"></head><body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">Veloura<span>$</span></a>
-    <nav class="nav">
-      <a href="index.html#collection">Collection</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="cart.html">Cart <span id="cartBadge">0</span></a>
-    </nav>
-  </div>
-</header>
-<main class="container section">
-  <div class="section-head"><h1>Gemstone Collection</h1><p class="muted">Original renders, real specs. Click any stone to view details and gallery.</p></div>
-  <div id="collection" class="grid">
-<article class="card">
-  <a href="ceylon-blue-sapphire.html">
-    <div class="card-media"><img src="/veloura/assets/ceylon-blue-sapphire/set1.png" alt="Ceylon Blue Sapphire — Cushion Cut"></div>
-  </a>
-  <h3><a href="ceylon-blue-sapphire.html">Ceylon Blue Sapphire — Cushion Cut</a></h3>
-  <p class="muted">Blue Sapphire · Cushion · 2.45 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$4850</strong>
-    <button class="btn" onclick='addItem({"slug":"ceylon-blue-sapphire","name":"Ceylon Blue Sapphire — Cushion Cut","price":4850})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="padparadscha-sapphire.html">
-    <div class="card-media"><img src="/veloura/assets/padparadscha-sapphire/set1.png" alt="Padparadscha Sapphire — Oval"></div>
-  </a>
-  <h3><a href="padparadscha-sapphire.html">Padparadscha Sapphire — Oval</a></h3>
-  <p class="muted">Padparadscha Sapphire · Oval · 1.62 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$9200</strong>
-    <button class="btn" onclick='addItem({"slug":"padparadscha-sapphire","name":"Padparadscha Sapphire — Oval","price":9200})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="ruby.html">
-    <div class="card-media"><img src="/veloura/assets/ruby/set1.png" alt="Ruby — Pigeon Blood Tone"></div>
-  </a>
-  <h3><a href="ruby.html">Ruby — Pigeon Blood Tone</a></h3>
-  <p class="muted">Ruby · Mixed oval · 1.18 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$3650</strong>
-    <button class="btn" onclick='addItem({"slug":"ruby","name":"Ruby — Pigeon Blood Tone","price":3650})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="alexandrite.html">
-    <div class="card-media"><img src="/veloura/assets/alexandrite/set1.png" alt="Alexandrite — Color-Change"></div>
-  </a>
-  <h3><a href="alexandrite.html">Alexandrite — Color-Change</a></h3>
-  <p class="muted">Alexandrite · Pear · 0.88 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$5400</strong>
-    <button class="btn" onclick='addItem({"slug":"alexandrite","name":"Alexandrite — Color-Change","price":5400})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="spinel.html">
-    <div class="card-media"><img src="/veloura/assets/spinel/set1.png" alt="Spinel — Neon Pink"></div>
-  </a>
-  <h3><a href="spinel.html">Spinel — Neon Pink</a></h3>
-  <p class="muted">Spinel · Cushion · 1.05 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$2150</strong>
-    <button class="btn" onclick='addItem({"slug":"spinel","name":"Spinel — Neon Pink","price":2150})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="cats-eye-chrysoberyl.html">
-    <div class="card-media"><img src="/veloura/assets/cats-eye-chrysoberyl/set1.png" alt="Cat’s Eye Chrysoberyl — Chatoyancy Line"></div>
-  </a>
-  <h3><a href="cats-eye-chrysoberyl.html">Cat’s Eye Chrysoberyl — Chatoyancy Line</a></h3>
-  <p class="muted">Chrysoberyl (Cat’s Eye) · Cabochon oval · 3.12 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$3990</strong>
-    <button class="btn" onclick='addItem({"slug":"cats-eye-chrysoberyl","name":"Cat’s Eye Chrysoberyl — Chatoyancy Line","price":3990})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="garnet.html">
-    <div class="card-media"><img src="/veloura/assets/garnet/set1.png" alt="Garnet — Royal Purple Rhodolite"></div>
-  </a>
-  <h3><a href="garnet.html">Garnet — Royal Purple Rhodolite</a></h3>
-  <p class="muted">Garnet (Rhodolite) · Round brilliant · 2.02 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$780</strong>
-    <button class="btn" onclick='addItem({"slug":"garnet","name":"Garnet — Royal Purple Rhodolite","price":780})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="yellow-sapphire.html">
-    <div class="card-media"><img src="/veloura/assets/yellow-sapphire/set1.png" alt="Yellow Sapphire — Golden Sunrise"></div>
-  </a>
-  <h3><a href="yellow-sapphire.html">Yellow Sapphire — Golden Sunrise</a></h3>
-  <p class="muted">Yellow Sapphire · Emerald · 1.74 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$1650</strong>
-    <button class="btn" onclick='addItem({"slug":"yellow-sapphire","name":"Yellow Sapphire — Golden Sunrise","price":1650})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="blue-sapphire-pair.html">
-    <div class="card-media"><img src="/veloura/assets/blue-sapphire-pair/set1.png" alt="Blue Sapphire Pair — Round Calibrated"></div>
-  </a>
-  <h3><a href="blue-sapphire-pair.html">Blue Sapphire Pair — Round Calibrated</a></h3>
-  <p class="muted">Blue Sapphire · Round · 0.62 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$690</strong>
-    <button class="btn" onclick='addItem({"slug":"blue-sapphire-pair","name":"Blue Sapphire Pair — Round Calibrated","price":690})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="star-sapphire.html">
-    <div class="card-media"><img src="/veloura/assets/star-sapphire/set1.png" alt="Star Sapphire — Six-Ray"></div>
-  </a>
-  <h3><a href="star-sapphire.html">Star Sapphire — Six-Ray</a></h3>
-  <p class="muted">Blue Star Sapphire · Cabochon oval · 4.85 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$1890</strong>
-    <button class="btn" onclick='addItem({"slug":"star-sapphire","name":"Star Sapphire — Six-Ray","price":1890})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="pink-sapphire.html">
-    <div class="card-media"><img src="/veloura/assets/pink-sapphire/set1.png" alt="Pink Sapphire — Pastel Rose"></div>
-  </a>
-  <h3><a href="pink-sapphire.html">Pink Sapphire — Pastel Rose</a></h3>
-  <p class="muted">Pink Sapphire · Oval brilliant · 1.32 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$1480</strong>
-    <button class="btn" onclick='addItem({"slug":"pink-sapphire","name":"Pink Sapphire — Pastel Rose","price":1480})'>Add</button>
-  </div>
-</article>
-<article class="card">
-  <a href="green-tourmaline.html">
-    <div class="card-media"><img src="/veloura/assets/green-tourmaline/set1.png" alt="Green Tourmaline — Emerald Step"></div>
-  </a>
-  <h3><a href="green-tourmaline.html">Green Tourmaline — Emerald Step</a></h3>
-  <p class="muted">Tourmaline · Emerald · 2.28 ct</p>
-  <div style="display:flex;justify-content:space-between;align-items:center"><strong>$620</strong>
-    <button class="btn" onclick='addItem({"slug":"green-tourmaline","name":"Green Tourmaline — Emerald Step","price":620})'>Add</button>
-  </div>
-</article></div>
-</main><footer class="site-footer"><div class="container" style="padding:22px 0;border-top:1px solid var(--line)">
-  <strong>Veloura<span>$</span></strong> <span class="muted">© <span id="year"></span></span>
-</div><script>document.getElementById('year').textContent=new Date().getFullYear()</script><script src="script.js"></script></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veloura$ — Gem Collection</title>
+
+  <style>
+    /* ===== Base + layout ===== */
+    * { box-sizing: border-box; }
+    :root {
+      --bg:#fffefb; --ink:#1a1a1a; --muted:#6b6b6b; --line:#ece7df; --gold:#bfa26a;
+    }
+    html, body { margin:0; padding:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:var(--ink); background:var(--bg); }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .muted { color: var(--muted); }
+
+    /* Header */
+    .site-header { position: sticky; top:0; backdrop-filter: blur(6px); background:rgba(255,255,255,.7); border-bottom:1px solid var(--line); z-index:10; }
+    .header-inner { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .logo { font-weight: 800; letter-spacing:.2px; }
+    .logo span { color: var(--gold); }
+    .nav { display:flex; gap:20px; align-items:center; }
+    #cartBadge { display:inline-block; min-width:18px; padding:0 6px; text-align:center; border-radius:999px; background:var(--ink); color:#fff; font-size:12px; line-height:18px; }
+
+    /* Sections, grid & cards */
+    .section { padding: 56px 0; }
+    .grid { display:grid; gap:18px; grid-template-columns:repeat(4,minmax(0,1fr)); }
+    @media (max-width: 950px) { .grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+    .card { border:1px solid var(--line); border-radius:16px; padding:14px; background:#fff; position:relative; overflow:hidden; }
+    .card h3 { margin:10px 0 6px; font-size:18px; line-height:1.25; }
+    .card-media { height: 220px; border-radius: 12px; border:1px solid var(--line); overflow: hidden; position: relative; isolation:isolate; }
+    .card-media img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .35s ease; }
+    .card:hover .card-media img { transform: scale(1.02); }
+    .btn { display:inline-flex; align-items:center; gap:6px; padding:9px 14px; border-radius:999px; border:1px solid var(--ink); background:#fff; cursor:pointer; }
+
+    /* ===== Motion background (soft gradient) ===== */
+    :root { --bg1:#fffaf3; --bg2:#f6efe5; --bg3:#f9f3e9; }
+    body::before {
+      content:""; position:fixed; inset:-10%; z-index:-2;
+      background:
+        radial-gradient(1200px 800px at 15% 10%, var(--bg2), transparent 60%),
+        radial-gradient(900px 700px at 80% 20%, var(--bg3), transparent 65%),
+        radial-gradient(1000px 900px at 40% 90%, var(--bg2), transparent 60%),
+        linear-gradient(180deg, var(--bg1), #fffefb 50%, var(--bg1));
+      animation: velouraGradient 18s ease-in-out infinite alternate;
+      filter: blur(.3px);
+    }
+    @keyframes velouraGradient {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      100% { transform: translate3d(0,-1.2%,0) scale(1.02); }
+    }
+
+    /* Canvas for bokeh particles */
+    #bgCanvas { position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.55; }
+
+    /* ===== Hover sparkle trail ===== */
+    .card-media::after {
+      content:""; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0; transition:opacity .25s ease;
+      background:
+        radial-gradient(10px 10px at var(--sx,-20px) var(--sy,-20px), rgba(255,255,255,.85), rgba(255,255,255,0) 55%),
+        radial-gradient(6px 6px at calc(var(--sx,-20px) + 30px) calc(var(--sy,-20px) + 10px), rgba(191,162,106,.75), rgba(191,162,106,0) 60%),
+        radial-gradient(4px 4px at calc(var(--sx,-20px) - 18px) calc(var(--sy,-20px) + 6px), rgba(255,255,255,.9), rgba(255,255,255,0) 60%);
+    }
+    .card:hover .card-media::after { opacity:1; }
+
+    /* ===== Reduce Motion toggle ===== */
+    .motion-toggle { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; cursor:pointer; font-size:14px; }
+    .motion-toggle input { width:18px; height:18px; accent-color: var(--gold); }
+    .motion-muted .card-media::after { display:none !important; }
+    .motion-muted #bgCanvas { display:none !important; }
+    @media (prefers-reduced-motion: reduce) {
+      body::before { animation: none !important; }
+      #bgCanvas { display:none !important; }
+      .card-media::after { display:none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Veloura<span>$</span></a>
+      <nav class="nav">
+        <a href="index.html#collection">Collection</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart <span id="cartBadge">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container section">
+    <div class="section-head">
+      <h1>Gemstone Collection</h1>
+      <p class="muted">Original renders, real specs. Click any stone to view details and gallery.</p>
+    </div>
+
+    <div id="collection" class="grid">
+      <!-- 12 products -->
+      <article class="card">
+        <a href="ceylon-blue-sapphire.html">
+          <div class="card-media"><img src="/veloura/assets/ceylon-blue-sapphire/set1.png" alt="Ceylon Blue Sapphire — Cushion Cut"></div>
+        </a>
+        <h3><a href="ceylon-blue-sapphire.html">Ceylon Blue Sapphire — Cushion Cut</a></h3>
+        <p class="muted">Blue Sapphire · Cushion · 2.45 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$4850</strong>
+          <button class="btn" onclick='addItem({"slug":"ceylon-blue-sapphire","name":"Ceylon Blue Sapphire — Cushion Cut","price":4850})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="padparadscha-sapphire.html">
+          <div class="card-media"><img src="/veloura/assets/padparadscha-sapphire/set1.png" alt="Padparadscha Sapphire — Oval"></div>
+        </a>
+        <h3><a href="padparadscha-sapphire.html">Padparadscha Sapphire — Oval</a></h3>
+        <p class="muted">Padparadscha Sapphire · Oval · 1.62 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$9200</strong>
+          <button class="btn" onclick='addItem({"slug":"padparadscha-sapphire","name":"Padparadscha Sapphire — Oval","price":9200})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="ruby.html">
+          <div class="card-media"><img src="/veloura/assets/ruby/set1.png" alt="Ruby — Pigeon Blood Tone"></div>
+        </a>
+        <h3><a href="ruby.html">Ruby — Pigeon Blood Tone</a></h3>
+        <p class="muted">Ruby · Mixed oval · 1.18 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$3650</strong>
+          <button class="btn" onclick='addItem({"slug":"ruby","name":"Ruby — Pigeon Blood Tone","price":3650})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="alexandrite.html">
+          <div class="card-media"><img src="/veloura/assets/alexandrite/set1.png" alt="Alexandrite — Color-Change"></div>
+        </a>
+        <h3><a href="alexandrite.html">Alexandrite — Color-Change</a></h3>
+        <p class="muted">Alexandrite · Pear · 0.88 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$5400</strong>
+          <button class="btn" onclick='addItem({"slug":"alexandrite","name":"Alexandrite — Color-Change","price":5400})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="spinel.html">
+          <div class="card-media"><img src="/veloura/assets/spinel/set1.png" alt="Spinel — Neon Pink"></div>
+        </a>
+        <h3><a href="spinel.html">Spinel — Neon Pink</a></h3>
+        <p class="muted">Spinel · Cushion · 1.05 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$2150</strong>
+          <button class="btn" onclick='addItem({"slug":"spinel","name":"Spinel — Neon Pink","price":2150})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="cats-eye-chrysoberyl.html">
+          <div class="card-media"><img src="/veloura/assets/cats-eye-chrysoberyl/set1.png" alt="Cat’s Eye Chrysoberyl — Chatoyancy Line"></div>
+        </a>
+        <h3><a href="cats-eye-chrysoberyl.html">Cat’s Eye Chrysoberyl — Chatoyancy Line</a></h3>
+        <p class="muted">Chrysoberyl (Cat’s Eye) · Cabochon oval · 3.12 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$3990</strong>
+          <button class="btn" onclick='addItem({"slug":"cats-eye-chrysoberyl","name":"Cat’s Eye Chrysoberyl — Chatoyancy Line","price":3990})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="garnet.html">
+          <div class="card-media"><img src="/veloura/assets/garnet/set1.png" alt="Garnet — Royal Purple Rhodolite"></div>
+        </a>
+        <h3><a href="garnet.html">Garnet — Royal Purple Rhodolite</a></h3>
+        <p class="muted">Garnet (Rhodolite) · Round brilliant · 2.02 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$780</strong>
+          <button class="btn" onclick='addItem({"slug":"garnet","name":"Garnet — Royal Purple Rhodolite","price":780})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="yellow-sapphire.html">
+          <div class="card-media"><img src="/veloura/assets/yellow-sapphire/set1.png" alt="Yellow Sapphire — Golden Sunrise"></div>
+        </a>
+        <h3><a href="yellow-sapphire.html">Yellow Sapphire — Golden Sunrise</a></h3>
+        <p class="muted">Yellow Sapphire · Emerald · 1.74 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$1650</strong>
+          <button class="btn" onclick='addItem({"slug":"yellow-sapphire","name":"Yellow Sapphire — Golden Sunrise","price":1650})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="blue-sapphire-pair.html">
+          <div class="card-media"><img src="/veloura/assets/blue-sapphire-pair/set1.png" alt="Blue Sapphire Pair — Round Calibrated"></div>
+        </a>
+        <h3><a href="blue-sapphire-pair.html">Blue Sapphire Pair — Round Calibrated</a></h3>
+        <p class="muted">Blue Sapphire · Round · 0.62 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$690</strong>
+          <button class="btn" onclick='addItem({"slug":"blue-sapphire-pair","name":"Blue Sapphire Pair — Round Calibrated","price":690})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="star-sapphire.html">
+          <div class="card-media"><img src="/veloura/assets/star-sapphire/set1.png" alt="Star Sapphire — Six-Ray"></div>
+        </a>
+        <h3><a href="star-sapphire.html">Star Sapphire — Six-Ray</a></h3>
+        <p class="muted">Blue Star Sapphire · Cabochon oval · 4.85 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$1890</strong>
+          <button class="btn" onclick='addItem({"slug":"star-sapphire","name":"Star Sapphire — Six-Ray","price":1890})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="pink-sapphire.html">
+          <div class="card-media"><img src="/veloura/assets/pink-sapphire/set1.png" alt="Pink Sapphire — Pastel Rose"></div>
+        </a>
+        <h3><a href="pink-sapphire.html">Pink Sapphire — Pastel Rose</a></h3>
+        <p class="muted">Pink Sapphire · Oval brilliant · 1.32 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$1480</strong>
+          <button class="btn" onclick='addItem({"slug":"pink-sapphire","name":"Pink Sapphire — Pastel Rose","price":1480})'>Add</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="green-tourmaline.html">
+          <div class="card-media"><img src="/veloura/assets/green-tourmaline/set1.png" alt="Green Tourmaline — Emerald Step"></div>
+        </a>
+        <h3><a href="green-tourmaline.html">Green Tourmaline — Emerald Step</a></h3>
+        <p class="muted">Tourmaline · Emerald · 2.28 ct</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>$620</strong>
+          <button class="btn" onclick='addItem({"slug":"green-tourmaline","name":"Green Tourmaline — Emerald Step","price":620})'>Add</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer + Reduce Motion toggle -->
+  <footer class="site-footer">
+    <div class="container" style="padding:22px 0;border-top:1px solid var(--line)">
+      <strong>Veloura<span>$</span></strong>
+      <span class="muted">© <span id="year"></span></span>
+
+      <div style="margin-top:12px">
+        <label class="motion-toggle" title="Reduce animations">
+          <input id="motionToggle" type="checkbox" />
+          Reduce motion
+        </label>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <script>
+    // ===== Basic cart badge =====
+    const CART_KEY='veloura_cart_v1';
+    function getCart(){try{return JSON.parse(localStorage.getItem(CART_KEY))||[]}catch{return[]}}
+    function setCart(c){localStorage.setItem(CART_KEY,JSON.stringify(c));refreshBadges()}
+    function addItem(item){const c=getCart(); const i=c.findIndex(x=>x.slug===item.slug); if(i>=0)c[i].qty+=1; else c.push({...item,qty:1}); setCart(c); alert(item.name+' added to cart.')}
+    function refreshBadges(){const n=getCart().reduce((a,b)=>a+b.qty,0); const b1=document.getElementById('cartBadge'); if(b1) b1.textContent=n}
+    refreshBadges();
+
+    // ===== Footer year =====
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Hover sparkle cursor tracking =====
+    (function(){
+      const root=document.documentElement; let rafId=null;
+      function onMove(e){ const t=e.touches?e.touches[0]:e;
+        if(rafId) cancelAnimationFrame(rafId);
+        rafId=requestAnimationFrame(()=>{ root.style.setProperty('--sx', t.clientX+'px'); root.style.setProperty('--sy', t.clientY+'px'); });
+      }
+      document.addEventListener('mousemove', onMove, {passive:true});
+      document.addEventListener('touchmove', onMove, {passive:true});
+    })();
+
+    // ===== Reduce Motion toggle (persists) =====
+    (function(){
+      const KEY='veloura_reduce_motion';
+      const setMuted=(m)=>{ document.body.classList.toggle('motion-muted',!!m); try{localStorage.setItem(KEY, m?'1':'0')}catch{} };
+      try{ setMuted(localStorage.getItem(KEY)==='1'); }catch{}
+      const el=document.getElementById('motionToggle');
+      if(el){ el.checked=document.body.classList.contains('motion-muted'); el.addEventListener('change',()=>setMuted(el.checked)); }
+    })();
+
+    // ===== Motion background bokeh =====
+    (function (){
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const dpr=Math.min(window.devicePixelRatio||1,2);
+      const canvas=document.getElementById('bgCanvas'); const ctx=canvas.getContext('2d');
+      let W,H,particles=[]; const MAX=60; const BASE=18; const COLOR='rgba(191,162,106,';
+      function resize(){
+        W=canvas.width=Math.floor(innerWidth*dpr); H=canvas.height=Math.floor(innerHeight*dpr);
+        canvas.style.width=innerWidth+'px'; canvas.style.height=innerHeight+'px';
+        const count=Math.floor(MAX*(innerWidth/1280+0.3));
+        particles=Array.from({length:count},()=>({
+          x:Math.random()*W, y:Math.random()*H, r:(BASE+Math.random()*BASE)*dpr,
+          a:0.12+Math.random()*0.12, vx:(Math.random()-0.5)*0.06*dpr, vy:(Math.random()-0.5)*0.06*dpr,
+          blur:2+Math.random()*3
+        }));
+      }
+      function tick(){
+        if(document.body.classList.contains('motion-muted')) { ctx.clearRect(0,0,W,H); requestAnimationFrame(tick); return; }
+        ctx.clearRect(0,0,W,H);
+        for(const p of particles){
+          p.x+=p.vx; p.y+=p.vy;
+          if(p.x<-p.r) p.x=W+p.r; if(p.x>W+p.r) p.x=-p.r;
+          if(p.y<-p.r) p.y=H+p.r; if(p.y>H+p.r) p.y=-p.r;
+          const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
+          g.addColorStop(0, `${COLOR}${(p.a*1.0).toFixed(3)})`);
+          g.addColorStop(0.6, `${COLOR}${(p.a*0.35).toFixed(3)})`);
+          g.addColorStop(1, 'rgba(191,162,106,0)');
+          ctx.filter=`blur(${p.blur}px)`; ctx.fillStyle=g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+        }
+        ctx.filter='none'; requestAnimationFrame(tick);
+      }
+      addEventListener('resize', resize, {passive:true});
+      resize(); requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>
